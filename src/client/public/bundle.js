@@ -20225,7 +20225,7 @@
 	            null,
 	            'Input'
 	        ),
-	        _react2.default.createElement('textarea', { id: 'inputBox', type: 'text', name: 'userMarkdown', 'max-width': '350px',
+	        _react2.default.createElement('textarea', { id: 'inputBox', type: 'text', name: 'userMarkdown', 'max-width': '350p',
 	            onInput: function onInput(event) {
 	                return props.onInputChange(event.target.value);
 	            } })
@@ -20275,7 +20275,7 @@
 	
 	
 	// module
-	exports.push([module.id, "#app {\n  height: 100%; }\n\n.inputWrapper, .outputWrapper {\n  height: 550px;\n  width: 325px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\nh1 {\n  text-align: center; }\n\n#inputBox {\n  height: 500px;\n  width: 325px;\n  max-width: 350px;\n  margin: 0 auto; }\n\n#outputBox {\n  border: 1px solid black;\n  height: 500px;\n  width: 325px;\n  margin: 0 auto; }\n", ""]);
+	exports.push([module.id, "#app {\n  font-family: \"Source Sans Pro\", sans-serif; }\n\n.container {\n  width: 1200px;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 650px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\n#inputBox, #outputBox {\n  height: 650px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto; }\n\n#outputBox {\n  border: 1px solid black; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper {\n    float: none;\n    margin: 0 auto;\n    display: block; } }\n", ""]);
 	
 	// exports
 

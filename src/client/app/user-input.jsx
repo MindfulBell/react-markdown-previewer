@@ -5,7 +5,7 @@ const UserInput = (props) => {
     return (
         <div className='inputWrapper'>
         <h1>Input</h1>
-            <textarea id='inputBox' type='text' name='userMarkdown' max-width='350px'
+            <textarea id='inputBox' type='text' name='userMarkdown' max-width='350p'
             onInput={(event) => props.onInputChange(event.target.value)}>
             </textarea>
         </div>
