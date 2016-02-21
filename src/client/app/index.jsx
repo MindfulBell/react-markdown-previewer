@@ -4,7 +4,6 @@ require("!style!css!sass!../public/css/style.scss");
 import UserInput from './user-input.jsx';
 import Marked from 'marked';
 import UserOutput from './user-output.jsx';
-var marked = require('marked');
 
 class App extends React.Component {
   constructor(props) {
