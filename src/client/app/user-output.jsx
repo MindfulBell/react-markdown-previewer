@@ -10,7 +10,7 @@ const UserOutput = (props) => {
     }
     return (
     <div className='outputWrapper'>
-        <h1>Output</h1>
+        <h1 className='title'>Output</h1>
         <div id='outputBox'>
             <span dangerouslySetInnerHTML={markify()} />
         </div>

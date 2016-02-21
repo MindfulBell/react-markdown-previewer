@@ -1,7 +1,17 @@
 $fontstack: 'Source Sans Pro', sans-serif;
+$divshadow: 0px 0px 12px black;
+@mixin text-style {
+    text-shadow: 0px 0px 8px white;
+    color: #4D243D;
+}
 
-#app {
+.title {
+    @include text-style;
+}
+
+body {
     font-family: $fontstack;
+    background-color: #CAC2B5;
 }
 
 .container {
@@ -10,9 +20,10 @@ $fontstack: 'Source Sans Pro', sans-serif;
 }
 
 .inputWrapper, .outputWrapper {
-    height: 650px;
+    height: 600px;
     width: 525px;
     display: inline-block;
+    
 }
 
 .inputWrapper {
@@ -21,24 +32,43 @@ $fontstack: 'Source Sans Pro', sans-serif;
 
 .outputWrapper {
     float: right;
+    
+}
+
+textarea {
+    font-family: $fontstack;
+    transition: box-shadow .3s;
+    box-shadow: $divshadow;
 }
 
 #inputBox, #outputBox {
-   height: 650px;
+   height: 600px;
    width: 525px;
    max-width: 525px;
    margin: 0 auto;
+   word-wrap: break-word;
+   background-color: white;
+   margin-bottom: 50px;
+}
+#inputBox {
+    font-size: 1.1em;
 }
 
 #outputBox {
-    border: 1px solid black;
+    font-family: $fontstack;
+    box-shadow: $divshadow;
 }
 
-@media (max-width:720px) {
-    .inputWrapper, .outputWrapper {
-        float: none;
+@media (max-width: 720px) {
+    .inputWrapper, .outputWrapper, #inputBox, #outputBox {
+        float: left;
         margin: 0 auto;
         display: block;
+        width: 100%;
+    }
+    
+    .outputWrapper {
+        margin-top: 100px;
     }
     
 }

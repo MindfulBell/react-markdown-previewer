@@ -89,8 +89,9 @@
 	
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 	
+	    var myString = "Try typing the below markdown...\n\n# I'm the biggest heading!\n## I'm a real big heading!\n### I'm a stocky heading!\n#### I'm a smaller heading!\n##### I'm a tiny heading!\n" + "###### Do I even lift?\nEmphasis, aka italics, with *asterisks* or _underscores_.\n\nStrong emphasis, aka bold, with **asterisks** or __underscores__.\n" + "Combined emphasis with **asterisks and _underscores_**.\nStrikethrough uses two tildes. ~~Scratch this.~~\n\n1. First ordered list item\n" + "2. Another item\n⋅⋅* Unordered sub-list.\n 1. Actual numbers don't matter, just that it's a number\n ⋅⋅1. Ordered sub-list\n4. And another item.\n\n" + "[I'm an inline-style link](https://www.google.com)\n[I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")";
 	    _this.state = {
-	      input: '',
+	      input: myString,
 	      markedInput: ''
 	    };
 	    return _this;
@@ -20222,13 +20223,17 @@
 	        { className: 'inputWrapper' },
 	        _react2.default.createElement(
 	            'h1',
-	            null,
+	            { className: 'title' },
 	            'Input'
 	        ),
-	        _react2.default.createElement('textarea', { id: 'inputBox', type: 'text', name: 'userMarkdown', 'max-width': '350p',
-	            onInput: function onInput(event) {
-	                return props.onInputChange(event.target.value);
-	            } })
+	        _react2.default.createElement(
+	            'textarea',
+	            { id: 'inputBox', type: 'text', name: 'userMarkdown', 'max-width': '350p',
+	                onInput: function onInput(event) {
+	                    return props.onInputChange(event.target.value);
+	                } },
+	            props.startInput
+	        )
 	    );
 	};
 	
@@ -20275,7 +20280,7 @@
 	
 	
 	// module
-	exports.push([module.id, "#app {\n  font-family: \"Source Sans Pro\", sans-serif; }\n\n.container {\n  width: 1200px;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 650px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\n#inputBox, #outputBox {\n  height: 650px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto; }\n\n#outputBox {\n  border: 1px solid black; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper {\n    float: none;\n    margin: 0 auto;\n    display: block; } }\n", ""]);
+	exports.push([module.id, ".title {\n  text-shadow: 0px 0px 8px white;\n  color: #4D243D; }\n\nbody {\n  font-family: \"Source Sans Pro\", sans-serif;\n  background-color: #CAC2B5; }\n\n.container {\n  width: 1200px;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 600px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\ntextarea {\n  font-family: \"Source Sans Pro\", sans-serif;\n  transition: box-shadow .3s;\n  box-shadow: 0px 0px 12px black; }\n\n#inputBox, #outputBox {\n  height: 600px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto;\n  word-wrap: break-word;\n  background-color: white;\n  margin-bottom: 50px; }\n\n#inputBox {\n  font-size: 1.1em; }\n\n#outputBox {\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 0px 0px 12px black; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper, #inputBox, #outputBox {\n    float: left;\n    margin: 0 auto;\n    display: block;\n    width: 100%; }\n  .outputWrapper {\n    margin-top: 100px; } }\n", ""]);
 	
 	// exports
 
@@ -21928,7 +21933,7 @@
 	        { className: 'outputWrapper' },
 	        _react2.default.createElement(
 	            'h1',
-	            null,
+	            { className: 'title' },
 	            'Output'
 	        ),
 	        _react2.default.createElement(
