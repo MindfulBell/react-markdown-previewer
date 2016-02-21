@@ -4,6 +4,10 @@ $divshadow: 0px 0px 12px black;
     text-shadow: 0px 0px 8px white;
     color: #4D243D;
 }
+@mixin height-and-width {
+    height: 600px;
+    width: 525px;
+}
 
 .title {
     @include text-style;
@@ -20,10 +24,8 @@ body {
 }
 
 .inputWrapper, .outputWrapper {
-    height: 600px;
-    width: 525px;
+    @include height-and-width; 
     display: inline-block;
-    
 }
 
 .inputWrapper {
@@ -42,8 +44,7 @@ textarea {
 }
 
 #inputBox, #outputBox {
-   height: 600px;
-   width: 525px;
+   @include height-and-width; 
    max-width: 525px;
    margin: 0 auto;
    word-wrap: break-word;
@@ -70,5 +71,4 @@ textarea {
     .outputWrapper {
         margin-top: 100px;
     }
-    
 }
