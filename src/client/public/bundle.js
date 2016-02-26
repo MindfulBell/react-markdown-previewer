@@ -61,11 +61,11 @@
 	
 	var _userInput2 = _interopRequireDefault(_userInput);
 	
-	var _marked = __webpack_require__(/*! marked */ 163);
+	var _marked = __webpack_require__(/*! marked */ 164);
 	
 	var _marked2 = _interopRequireDefault(_marked);
 	
-	var _userOutput = __webpack_require__(/*! ./user-output.jsx */ 164);
+	var _userOutput = __webpack_require__(/*! ./user-output.jsx */ 165);
 	
 	var _userOutput2 = _interopRequireDefault(_userOutput);
 	
@@ -78,8 +78,6 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	__webpack_require__(/*! style!css!sass!../public/css/style.scss */ 160);
-	
-	var marked = __webpack_require__(/*! marked */ 163);
 	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -20252,7 +20250,7 @@
 	var content = __webpack_require__(/*! !./../../../../~/css-loader!./../../../../~/sass-loader!./style.scss */ 161);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 162)(content, {});
+	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 163)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -20275,18 +20273,77 @@
   \*************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 165)();
+	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 162)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".title {\n  text-shadow: 0px 0px 8px white;\n  color: #4D243D; }\n\nbody {\n  font-family: \"Source Sans Pro\", sans-serif;\n  background-color: #CAC2B5; }\n\n.container {\n  width: 1200px;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 600px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\ntextarea {\n  font-family: \"Source Sans Pro\", sans-serif;\n  transition: box-shadow .3s;\n  box-shadow: 0px 0px 12px black; }\n\n#inputBox, #outputBox {\n  height: 600px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto;\n  word-wrap: break-word;\n  background-color: white;\n  margin-bottom: 50px; }\n\n#inputBox {\n  font-size: 1.1em; }\n\n#outputBox {\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 0px 0px 12px black; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper, #inputBox, #outputBox {\n    float: left;\n    margin: 0 auto;\n    display: block;\n    width: 100%; }\n  .outputWrapper {\n    margin-top: 100px; } }\n", ""]);
+	exports.push([module.id, ".title {\n  text-shadow: 0px 0px 8px white;\n  color: black; }\n\nbody {\n  font-family: \"Source Sans Pro\", sans-serif;\n  background: -webkit-linear-gradient(#ffcc99, #99ccff);\n  background: -o-linear-gradient(#ffcc99, #99ccff);\n  background: -moz-linear-gradient(#ffcc99, #99ccff);\n  background: linear-gradient(#ffcc99, #99ccff); }\n\n.container {\n  width: 15;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 600px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\ntextarea {\n  font-family: \"Source Sans Pro\", sans-serif;\n  transition: box-shadow .3s;\n  box-shadow: 0px 0px 12px black; }\n\n#inputBox, #outputBox {\n  height: 600px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto;\n  word-wrap: break-word;\n  background-color: white;\n  margin-bottom: 50px; }\n\n#inputBox {\n  font-size: 1.1em; }\n\n#outputBox {\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 0px 0px 12px black; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper, #inputBox, #outputBox {\n    float: left;\n    margin: 0 auto;\n    display: block;\n    width: 100%; }\n  .outputWrapper {\n    margin-top: 100px; } }\n", ""]);
 	
 	// exports
 
 
 /***/ },
 /* 162 */
+/*!**************************************!*\
+  !*** ./~/css-loader/lib/css-base.js ***!
+  \**************************************/
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 163 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -20543,7 +20600,7 @@
 
 
 /***/ },
-/* 163 */
+/* 164 */
 /*!********************************!*\
   !*** ./~/marked/lib/marked.js ***!
   \********************************/
@@ -21838,7 +21895,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 164 */
+/* 165 */
 /*!****************************************!*\
   !*** ./src/client/app/user-output.jsx ***!
   \****************************************/
@@ -21854,7 +21911,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _marked = __webpack_require__(/*! marked */ 163);
+	var _marked = __webpack_require__(/*! marked */ 164);
 	
 	var _marked2 = _interopRequireDefault(_marked);
 	
@@ -21862,7 +21919,7 @@
 	
 	__webpack_require__(/*! style!css!sass!../public/css/style.scss */ 160);
 	
-	var marked = __webpack_require__(/*! marked */ 163);
+	var marked = __webpack_require__(/*! marked */ 164);
 	
 	var UserOutput = function UserOutput(props) {
 	    var markify = function markify() {
@@ -21886,65 +21943,6 @@
 	};
 	
 	exports.default = UserOutput;
-
-/***/ },
-/* 165 */
-/*!**************************************!*\
-  !*** ./~/css-loader/lib/css-base.js ***!
-  \**************************************/
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
 
 /***/ }
 /******/ ]);

@@ -1,6 +1,5 @@
 import React from 'react';
 require("!style!css!sass!../public/css/style.scss");
-require('bootstrap-loader');
 
 const UserInput = (props) => {
     return (

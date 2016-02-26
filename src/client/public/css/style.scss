@@ -1,8 +1,9 @@
 $fontstack: 'Source Sans Pro', sans-serif;
 $divshadow: 0px 0px 12px black;
+
 @mixin text-style {
     text-shadow: 0px 0px 8px white;
-    color: #4D243D;
+    color: black;
 }
 @mixin height-and-width {
     height: 600px;
@@ -15,11 +16,14 @@ $divshadow: 0px 0px 12px black;
 
 body {
     font-family: $fontstack;
-    background-color: #CAC2B5;
+    background: -webkit-linear-gradient(#ffcc99, #99ccff);
+    background: -o-linear-gradient(#ffcc99, #99ccff);
+    background: -moz-linear-gradient(#ffcc99, #99ccff);
+    background: linear-gradient(#ffcc99, #99ccff);
 }
 
 .container {
-    width: 1200px;
+    width: 15;
     margin: 0 auto;
 }
 
