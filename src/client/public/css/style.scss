@@ -1,13 +1,23 @@
 $fontstack: 'Source Sans Pro', sans-serif;
-$divshadow: 0px 0px 12px black;
+$divshadow: 4px 4px 12px 2px black;
+$background1: #E0BF77;
+
+//first SASS usage! Yaaay!
+
+@mixin bg {
+    background: -webkit-linear-gradient($background1, #99ccff);
+    background: -o-linear-gradient($background1, #99ccff);
+    background: -moz-linear-gradient($background1, #99ccff);
+    background: linear-gradient($background1, #99ccff);
+    background-attachment: fixed;
+}
+@mixin border-radius {
+    border-radius: 0px 40px;
+}
 
 @mixin text-style {
-    text-shadow: 0px 0px 8px white;
-    color: black;
-}
-@mixin height-and-width {
-    height: 600px;
-    width: 525px;
+    text-shadow: 2px 2px 4px gray;
+    color: #003366;
 }
 
 .title {
@@ -15,53 +25,46 @@ $divshadow: 0px 0px 12px black;
 }
 
 body {
+    @include bg;
     font-family: $fontstack;
-    background: -webkit-linear-gradient(#ffcc99, #99ccff);
-    background: -o-linear-gradient(#ffcc99, #99ccff);
-    background: -moz-linear-gradient(#ffcc99, #99ccff);
-    background: linear-gradient(#ffcc99, #99ccff);
 }
-
 .container {
-    width: 15;
+    width: 1200px;
     margin: 0 auto;
 }
-
 .inputWrapper, .outputWrapper {
-    @include height-and-width; 
+    height: 800px;
+    width: 525px;
     display: inline-block;
 }
-
 .inputWrapper {
     float: left;
 }
-
 .outputWrapper {
     float: right;
-    
 }
-
 textarea {
     font-family: $fontstack;
-    transition: box-shadow .3s;
     box-shadow: $divshadow;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
 }
 
 #inputBox, #outputBox {
-   @include height-and-width; 
-   max-width: 525px;
-   margin: 0 auto;
-   word-wrap: break-word;
-   background-color: white;
-   margin-bottom: 50px;
-}
-#inputBox {
-    font-size: 1.1em;
+    @include border-radius;
+    width: 525px; 
+    max-width: 525px;
+    margin: 0 auto;
+    word-wrap: break-word;
+    background-color: white;
+    margin-bottom: 50px;
 }
 
 #outputBox {
     font-family: $fontstack;
     box-shadow: $divshadow;
+    transition: all .3s;
 }
 
 @media (max-width: 720px) {
@@ -71,7 +74,6 @@ textarea {
         display: block;
         width: 100%;
     }
-    
     .outputWrapper {
         margin-top: 100px;
     }
