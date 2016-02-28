@@ -5,7 +5,12 @@ import UserInput from './user-input.jsx';
 import Marked from 'marked';
 import UserOutput from './user-output.jsx';
 
+//markdown previewer using Marked.js and React
+
+
+
 class App extends React.Component {
+  //initating state, default text to show in the box, markedInput set to '', height of the box 
   constructor(props) {
     super(props);
     const myString = 
@@ -16,21 +21,34 @@ class App extends React.Component {
 "[I'm an inline-style link](https://www.google.com)\n[I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")";
     this.state = {
       input: myString,
-      markedInput: ''
+      markedInput: '',
+      boxHeight: '600'
     };
   }
-  
+  //function to reset the input
   updateInput (newInput) {
     this.setState({
       input: newInput
     });
   }
+  //box resize function for the output box when the input box gets dragged to be taller
+  onSizeChange (size) {
+    this.setState({
+      boxHeight: size
+    });
+  }
   
   render () {
+    const BoxHeight = {
+      height: this.state.boxHeight
+    };
+    
     return (
     <div className='container'>
-      <UserInput startInput={this.state.input} onInputChange={this.updateInput.bind(this)} />
-      <UserOutput input={this.state.input}/>
+      <UserInput height={BoxHeight} startInput={this.state.input}
+      onInputChange={this.updateInput.bind(this)}//function prop to handle input change
+      onSizeChange={this.onSizeChange.bind(this)} />
+      <UserOutput height={BoxHeight} input={this.state.input}/>
     </div>
     );
   }

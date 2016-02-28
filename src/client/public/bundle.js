@@ -79,8 +79,13 @@
 	
 	__webpack_require__(/*! style!css!sass!../public/css/style.scss */ 160);
 	
+	
+	//markdown previewer using Marked.js and React
+	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
+	
+	  //initating state, default text to show in the box, markedInput set to '', height of the box
 	
 	  function App(props) {
 	    _classCallCheck(this, App);
@@ -90,10 +95,13 @@
 	    var myString = "Try typing the below markdown...\n\n# I'm the biggest heading!\n## I'm a real big heading!\n### I'm a stocky heading!\n#### I'm a smaller heading!\n##### I'm a tiny heading!\n" + "###### Do I even lift?\nEmphasis, aka italics, with *asterisks* or _underscores_.\n\nStrong emphasis, aka bold, with **asterisks** or __underscores__.\n" + "Combined emphasis with **asterisks and _underscores_**.\nStrikethrough uses two tildes. ~~Scratch this.~~\n\n1. First ordered list item\n" + "2. Another item\n⋅⋅* Unordered sub-list.\n 1. Actual numbers don't matter, just that it's a number\n ⋅⋅1. Ordered sub-list\n4. And another item.\n\n" + "[I'm an inline-style link](https://www.google.com)\n[I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")";
 	    _this.state = {
 	      input: myString,
-	      markedInput: ''
+	      markedInput: '',
+	      boxHeight: '600'
 	    };
 	    return _this;
 	  }
+	  //function to reset the input
+	
 	
 	  _createClass(App, [{
 	    key: 'updateInput',
@@ -102,14 +110,29 @@
 	        input: newInput
 	      });
 	    }
+	    //box resize function for the output box when the input box gets dragged to be taller
+	
+	  }, {
+	    key: 'onSizeChange',
+	    value: function onSizeChange(size) {
+	      this.setState({
+	        boxHeight: size
+	      });
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var BoxHeight = {
+	        height: this.state.boxHeight
+	      };
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
-	        _react2.default.createElement(_userInput2.default, { startInput: this.state.input, onInputChange: this.updateInput.bind(this) }),
-	        _react2.default.createElement(_userOutput2.default, { input: this.state.input })
+	        _react2.default.createElement(_userInput2.default, { height: BoxHeight, startInput: this.state.input,
+	          onInputChange: this.updateInput.bind(this) //function prop to handle input change
+	          , onSizeChange: this.onSizeChange.bind(this) }),
+	        _react2.default.createElement(_userOutput2.default, { height: BoxHeight, input: this.state.input })
 	      );
 	    }
 	  }]);
@@ -20226,9 +20249,12 @@
 	        ),
 	        _react2.default.createElement(
 	            'textarea',
-	            { id: 'inputBox', type: 'text', name: 'userMarkdown', 'max-width': '350p',
+	            { style: props.height, id: 'inputBox', type: 'text', name: 'userMarkdown', 'max-width': '350p',
 	                onInput: function onInput(event) {
 	                    return props.onInputChange(event.target.value);
+	                } //event for inputting + resizing
+	                , onMouseUp: function onMouseUp(event) {
+	                    return props.onSizeChange(event.target.style.height);
 	                } },
 	            props.startInput
 	        )
@@ -20278,7 +20304,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".title {\n  text-shadow: 0px 0px 8px white;\n  color: #4D243D; }\n\nbody {\n  font-family: \"Source Sans Pro\", sans-serif;\n  background-color: #CAC2B5; }\n\n.container {\n  width: 1200px;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 600px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\ntextarea {\n  font-family: \"Source Sans Pro\", sans-serif;\n  transition: box-shadow .3s;\n  box-shadow: 0px 0px 12px black; }\n\n#inputBox, #outputBox {\n  height: 600px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto;\n  word-wrap: break-word;\n  background-color: white;\n  margin-bottom: 50px; }\n\n#inputBox {\n  font-size: 1.1em; }\n\n#outputBox {\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 0px 0px 12px black; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper, #inputBox, #outputBox {\n    float: left;\n    margin: 0 auto;\n    display: block;\n    width: 100%; }\n  .outputWrapper {\n    margin-top: 100px; } }\n", ""]);
+	exports.push([module.id, ".title {\n  text-shadow: 2px 2px 4px gray;\n  color: #003366; }\n\nbody {\n  background: -webkit-linear-gradient(#E0BF77, #99ccff);\n  background: -o-linear-gradient(#E0BF77, #99ccff);\n  background: -moz-linear-gradient(#E0BF77, #99ccff);\n  background: linear-gradient(#E0BF77, #99ccff);\n  background-attachment: fixed;\n  font-family: \"Source Sans Pro\", sans-serif; }\n\n.container {\n  width: 1200px;\n  margin: 0 auto; }\n\n.inputWrapper, .outputWrapper {\n  height: 800px;\n  width: 525px;\n  display: inline-block; }\n\n.inputWrapper {\n  float: left; }\n\n.outputWrapper {\n  float: right; }\n\ntextarea {\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 4px 4px 12px 2px black;\n  border: none;\n  outline: none;\n  font-size: 1.1em; }\n\n#inputBox, #outputBox {\n  border-radius: 0px 40px;\n  width: 525px;\n  max-width: 525px;\n  margin: 0 auto;\n  word-wrap: break-word;\n  background-color: white;\n  margin-bottom: 50px; }\n\n#outputBox {\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 4px 4px 12px 2px black;\n  transition: all .3s; }\n\n@media (max-width: 720px) {\n  .inputWrapper, .outputWrapper, #inputBox, #outputBox {\n    float: left;\n    margin: 0 auto;\n    display: block;\n    width: 100%; }\n  .outputWrapper {\n    margin-top: 100px; } }\n", ""]);
 	
 	// exports
 
@@ -21922,6 +21948,7 @@
 	var marked = __webpack_require__(/*! marked */ 164);
 	
 	var UserOutput = function UserOutput(props) {
+	    //marked.js doing it's magic
 	    var markify = function markify() {
 	        var rawMarkup = marked(props.input.toString(), { sanitize: true });
 	        return { __html: rawMarkup };
@@ -21936,7 +21963,7 @@
 	        ),
 	        _react2.default.createElement(
 	            'div',
-	            { id: 'outputBox' },
+	            { style: props.height, id: 'outputBox' },
 	            _react2.default.createElement('span', { dangerouslySetInnerHTML: markify() })
 	        )
 	    );
